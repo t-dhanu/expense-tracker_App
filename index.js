@@ -1,5 +1,6 @@
  
  const bodyparser=require('body-parser')
+ const cors =require('cors')
  
  const mongoose=require('mongoose') 
   const express=require('express')
@@ -31,10 +32,16 @@ app.use(cors())
 
      console.log("DB connection Establised")
      const port=process.env.port|| 9000
-         app.listen(9000,function(){
+         app.listen(port,function(){
         
       console.log(`Listening on port ${port} ....`)
  
+})
+app.get('/',function(request,response){
+    const obj={
+        name:"Dhanushya"
+    }
+    response.status(200).json(obj)
 })
 
    }
